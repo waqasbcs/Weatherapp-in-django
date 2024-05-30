@@ -10,6 +10,11 @@ WeatherApp is a simple web application built using Django that allows users to g
 
 ## Installation
 
+## screenshot
+
+![Screenshot](https://github.com/waqasbcs/django_password_generator/blob/main/screenshots/password.png)
+
+
 1. **Clone the repository:**
 
    ```bash
@@ -44,9 +49,9 @@ python manage.py runserver
 Open your web browser and go to http://127.0.0.1:8000.
 
 **Usage**
-.Enter the name of the city in the search box.
-.Click on the "Get Weather" button.
-.View the current weather information for the specified city.
+1. Enter the name of the city in the search box.
+2. Click on the "Get Weather" button.
+3. View the current weather information for the specified city.
 
 
 
