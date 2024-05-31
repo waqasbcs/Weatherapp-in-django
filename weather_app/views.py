@@ -6,13 +6,13 @@ import datetime
 
 def index(request):
     city = request.POST['city'] if 'city' in request.POST else 'Lahore'
-    OPENWEATHERMAP_API_KEY = '8f26bd76ad0ecd67f0aeb796c2722806'
-    SEARCH_ENGINE_ID = '722a9bb9cb4364809'
+    OPENWEATHERMAP_API_KEY = ''
+    SEARCH_ENGINE_ID = ''
 
     url = f'https://api.openweathermap.org/data/2.5/weather?q={city}&appid={OPENWEATHERMAP_API_KEY}'
     PARAMS = {'units': 'metric'}
 
-    GOOGLE_CUSTOM_SEARCH_API_KEY = 'AIzaSyDwGjaeynj9YdFnQGYAVxc92KyLziiLa8M'
+    GOOGLE_CUSTOM_SEARCH_API_KEY = ''
     query = city + " 1920x1080"
     page = 1
     start = (page - 1) * 10 + 1
