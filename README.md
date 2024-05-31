@@ -12,7 +12,7 @@ WeatherApp is a simple web application built using Django that allows users to g
 
 ## screenshot
 
-![Screenshot](https://github.com/waqasbcs/django_password_generator/blob/main/screenshots/password.png)
+![Screenshot]()
 
 
 1. **Clone the repository:**
