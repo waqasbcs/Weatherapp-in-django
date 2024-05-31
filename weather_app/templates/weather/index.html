@@ -1,0 +1,175 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Weather App</title>
+    <link rel="stylesheet" href="{% static 'styles.css' %}">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;600&display=swap" rel="stylesheet">
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Poppins', sans-serif;
+            background-image: url('{{ image_url }}');
+            background-size: cover;
+            background-position: center;
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: #333;
+        }
+
+        .container {
+            background-color: rgba(255, 255, 255, 0.9);
+            padding: 40px;
+            border-radius: 20px;
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+            text-align: center;
+            max-width: 500px;
+            width: 100%;
+        }
+
+        .heading {
+            font-size: 3rem;
+            margin-bottom: 20px;
+            color: #007BFF;
+        }
+
+        .form-inline {
+            display: flex;
+            justify-content: center;
+        }
+
+        .form-control {
+            width: 70%;
+            margin-right: 10px;
+        }
+
+        .btn {
+            background-color: #007BFF;
+            color: #fff;
+            border: none;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .btn:hover {
+            background-color: #0056b3;
+        }
+
+        .weather {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-top: 20px;
+            background-color: rgba(255, 255, 255, 0.7);
+            padding: 20px;
+            border-radius: 15px;
+        }
+
+        .temp {
+            font-size: 3rem;
+            margin: 0;
+            color: #FF5722;
+        }
+
+        .city {
+            font-size: 1.5rem;
+            color: #333;
+        }
+
+        .icon img {
+            width: 100px;
+        }
+
+        .condition {
+            text-align: left;
+        }
+
+        .condition p {
+            margin: 5px 0;
+            font-size: 1rem;
+            color: #555;
+        }
+
+        .alert {
+            margin-top: 20px;
+            padding: 15px;
+            background-color: #f8d7da;
+            color: #721c24;
+            border: 1px solid #f5c6cb;
+            border-radius: 5px;
+        }
+
+        @media (max-width: 500px) {
+            .container {
+                padding: 20px;
+            }
+
+            .heading {
+                font-size: 2rem;
+            }
+
+            .form-control {
+                width: 60%;
+            }
+
+            .temp {
+                font-size: 2.5rem;
+            }
+
+            .icon img {
+                width: 80px;
+            }
+
+            .condition p {
+                font-size: 0.9rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1 class="heading">Weather App</h1>
+        
+        <form method="POST" class="form-inline">
+            {% csrf_token %}
+            <input type="text" name="city" placeholder="Enter City" class="form-control" required>
+            <button type="submit" class="btn btn-primary">Search</button>
+        </form>
+        
+        {% if city %}
+        <div class="weather mt-4 p-3 rounded shadow-sm">
+            <div class="left">
+                <h2 class="temp">{{ temp }}&#176; C</h2>
+                <h2 class="city">{{ city }}</h2>
+            </div>
+            <div class="right">
+                <div class="icon">
+                    <img src="http://openweathermap.org/img/w/{{ icon }}.png" alt="{{ description }}">
+                </div>
+                <div class="condition">
+                    <p>{{ description }}</p>
+                    <p>{{ day }}</p>
+                </div>
+            </div>
+        </div>
+        {% endif %}
+    </div>
+
+    {% if exception_occurred %}
+    <div class="alert alert-danger mt-3">
+        City information is not available from the Weather API.
+    </div>
+    {% endif %}
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.3/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>
