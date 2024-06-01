@@ -12,7 +12,10 @@ WeatherApp is a simple web application built using Django that allows users to g
 
 ## screenshot
 
-![Screenshot]()
+
+![Screenshot-1](https://github.com/waqasbcs/Weatherapp-in-django/blob/main/screenshorts/WhatsApp%20Image%202024-05-31%20at%2013.10.43_880235ea.jpg)
+![Screenshot-2](https://github.com/waqasbcs/Weatherapp-in-django/blob/main/screenshorts/WhatsApp%20Image%202024-05-31%20at%2013.11.14_421740fc.jpg)
+![Screenshot-3](https://github.com/waqasbcs/Weatherapp-in-django/blob/main/screenshorts/WhatsApp%20Image%202024-05-31%20at%2013.11.46_bccc3d16.jpg)
 
 
 1. **Clone the repository:**
